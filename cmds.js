@@ -179,7 +179,7 @@ exports.testCmd = (socket, rl, id) =>
     }
 
 
-    return makeQuestion(rl, quiz.question)
+    return makeQuestion(socket, rl, quiz.question)
         .then(answer => {
         if(answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim()
 )
@@ -257,13 +257,14 @@ exports.playCmd = (socket,rl) => {
 };
 
 
-exports.creditsCmd = rl => {
-    log('Autores de la práctica.');
-    log('Raquel Ruiz Orozco','green');
-    log('Nombre 2','green');
+exports.creditsCmd = (socket, rl) => {
+    log(socket, 'Autores de la práctica.');
+    log(socket, 'Raquel Ruiz Orozco','green');
+    log(socket, 'Nombre 2','green');
     rl.prompt();
 };
 
-exports.quitCmd = rl => {
+exports.quitCmd = (socket,rl) => {
     rl.close();
+    socket.end();
 };
