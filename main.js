@@ -27,9 +27,10 @@ const rl = readline.createInterface({
 
 });
 
+
 socket
-    .on("end") , () => {rl.close(); })
-    .on("error" , () => {rl.close(); });
+    .on("end" , () => { rl.close(); })
+    .on("error" , () => { rl.close(); });
 
 rl.prompt();
 
@@ -37,6 +38,9 @@ rl
     .on('line', (line) => {
 
     let args = line.split(" ");
+
+
+
 let cmd= args[0].toLowerCase().trim();
 
 switch (cmd){

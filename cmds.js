@@ -77,7 +77,7 @@ exports.showCmd = (socket, rl, id) => {
 });
 };
 
-const makeQuestion = (socket, rl, text) => {
+const makeQuestion = ( rl, text) => {
 
     return new Sequelize.Promise((resolve, reject) => {
         rl.question(colorize(text, 'red'), answer => {
@@ -88,7 +88,7 @@ const makeQuestion = (socket, rl, text) => {
 
 exports.addCmd = (socket, rl) => {
 
-    makeQuestion(socket, rl, 'Introduzca una pregunta: ') //promesa que hasta no introduzca una pregunta no finaliza
+    makeQuestion( rl, 'Introduzca una pregunta: ') //promesa que hasta no introduzca una pregunta no finaliza
         .then(q => {
         return makeQuestion(rl, 'Introduce la respuesta: ')
             .then(a => {
@@ -179,7 +179,7 @@ exports.testCmd = (socket, rl, id) =>
     }
 
 
-    return makeQuestion(socket, rl, quiz.question)
+    return makeQuestion( rl, quiz.question)
         .then(answer => {
         if(answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim()
 )
