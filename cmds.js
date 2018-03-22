@@ -19,7 +19,7 @@ exports.helpCmd = (socket, rl) => {
     rl.prompt();
 };
 
-exports.listCmd = (socket, rl) => {
+exports.listCmd = ( socket, rl) => {
     /*
     model.getAll().forEach((quiz, id) => {
         log(`[${colorize(id, 'magenta')}]: ${quiz.question}`);
@@ -208,7 +208,7 @@ else
 }
 
 
-exports.playCmd = (socket,rl) => {
+exports.playCmd = (socket, rl) => {
     let score = 0;
     let toBePlayed = [];
 
@@ -266,5 +266,5 @@ exports.creditsCmd = (socket, rl) => {
 
 exports.quitCmd = (socket,rl) => {
     rl.close();
-    socket.end();
+    //socket.end();
 };

@@ -106,7 +106,7 @@ switch (cmd){
 })
 
 .on('close', () => {
-    log(socket, 'Adios!');
+    log( 'Adios!');
 process.exit(0);
 });
 
