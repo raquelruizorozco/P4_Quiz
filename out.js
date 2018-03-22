@@ -15,7 +15,7 @@ const log = (socket, msg,color) =>{
     socket.write(colorize(msg,color) + "\n");
 };
 
-const biglog = (socket,color) => {
+const biglog = (socket,msg, color) => {
     log(socket, figlet.textSync(msg, {horizontalLayout:'full'}), color);
 };
 
